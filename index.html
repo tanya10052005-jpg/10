@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vela Cafe' — ร้านกาแฟสุดชิค บรรยากาศอบอุ่น</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Custom Palette from provided color swatches
+                        brand: {
+                            burgundy: '#7A2222',    // Deep Burgundy/Maroon Red
+                            burgundyDark: '#591717',
+                            ochre: '#C49A56',       // Warm Ochre/Gold Tan
+                            espresso: '#382319',    // Dark Espresso Brown
+                            terracotta: '#9E5327',  // Warm Terracotta Brown
+                            cream: '#FEF3D6',       // Soft Cream/Butter Yellow
+                            creamLight: '#FFFBF0',  // Warm Light Off-White
+                            sageLight: '#AAB899',   // Light Sage Green
+                            sageGray: '#EAE8E1',    // Soft Off-White/Sage Gray
+                            sageMuted: '#5E825C',   // Medium Muted Green
+                            forest: '#3B5840',      // Forest Green
+                            pineDark: '#2A3F30',    // Deep Dark Pine Green
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter and Prompt for Thai typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Prompt', 'Inter', sans-serif;
+            background-color: #FEF3D6;
+            color: #382319;
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-espresso antialiased selection:bg-brand-ochre selection:text-brand-espresso">
+
+    <!-- 1. Navbar Section -->
+    <header class="sticky top-0 z-50 bg-brand-pineDark/95 backdrop-blur-md shadow-md border-b border-brand-forest">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-burgundy flex items-center justify-center p-2 shadow-md border border-brand-ochre/40">
+                        <!-- Custom SVG Logo matching provided logo image -->
+                        <svg class="w-full h-full text-brand-cream fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 1w.8 1.8C8.5 3.3 8 4 7 4.5s-1.5 1-1 2c.5 1 1.5.8 2 1.5S7.2 9.5 6 10M12 1w.8 1.8c.7 0.5.2 1.2-.8 1.7s-1.5 1-1 2c.5 1 1.5.8 2 1.5s-.8 1.5-2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M2 10h15v5c0 3.3-2.7 6-6 6H8c-3.3 0-6-2.7-6-6v-5zm15 2h2c1.7 0 3 1.3 3 3s-1.3 3-3 3h-2v-6z"/>
+                        </svg>
+                    </div>
+                    <a href="#" class="font-bold text-xl sm:text-2xl tracking-tight text-brand-cream">
+                        Vela <span class="text-brand-ochre font-light">Cafe'</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-sm font-medium text-brand-cream/90 hover:text-brand-ochre transition-colors">หน้าแรก</a>
+                    <a href="#about" class="text-sm font-medium text-brand-cream/90 hover:text-brand-ochre transition-colors">เกี่ยวกับเรา</a>
+                    <a href="#menu" class="text-sm font-medium text-brand-cream/90 hover:text-brand-ochre transition-colors">เมนูแนะนำ</a>
+                    <a href="#why-us" class="text-sm font-medium text-brand-cream/90 hover:text-brand-ochre transition-colors">ทำไมต้องเรา</a>
+                    <a href="#gallery" class="text-sm font-medium text-brand-cream/90 hover:text-brand-ochre transition-colors">บรรยากาศร้าน</a>
+                    <a href="#contact" class="text-sm font-medium text-brand-cream/90 hover:text-brand-ochre transition-colors">ติดต่อเรา</a>
+                </nav>
+
+                <!-- CTA Button (Desktop) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#menu" class="px-5 py-2.5 rounded-full bg-brand-burgundy text-brand-cream text-sm font-medium shadow-md hover:bg-brand-burgundyDark hover:shadow-lg transition-all transform hover:-translate-y-0.5 border border-brand-ochre/30">
+                        <i class="fa-solid fa-book-open mr-2 text-brand-ochre"></i> ดูเมนูเครื่องดื่ม
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="p-2 rounded-lg text-brand-cream hover:bg-brand-forest focus:outline-none transition-colors">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-pineDark border-b border-brand-forest px-4 pt-2 pb-6 space-y-3 shadow-xl transition-all">
+            <a href="#hero" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-cream hover:bg-brand-forest">หน้าแรก</a>
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-cream hover:bg-brand-forest">เกี่ยวกับเรา</a>
+            <a href="#menu" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-cream hover:bg-brand-forest">เมนูแนะนำ</a>
+            <a href="#why-us" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-cream hover:bg-brand-forest">ทำไมต้องเรา</a>
+            <a href="#gallery" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-cream hover:bg-brand-forest">บรรยากาศร้าน</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-cream hover:bg-brand-forest">ติดต่อเรา</a>
+            <div class="pt-2">
+                <a href="#menu" class="mobile-link w-full text-center block px-4 py-3 rounded-full bg-brand-burgundy text-brand-cream text-sm font-medium shadow">
+                    <i class="fa-solid fa-book-open mr-2 text-brand-ochre"></i> ดูเมนูเครื่องดื่ม
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Hero Section -->
+        <section id="hero" class="relative overflow-hidden bg-gradient-to-br from-brand-pineDark via-brand-forest to-brand-pineDark py-16 sm:py-24 lg:py-32 text-brand-cream">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C49A56_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Text Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 bg-brand-burgundy/80 border border-brand-ochre/40 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium text-brand-cream shadow-sm">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-ochre animate-pulse"></span>
+                            <span>เปิดให้บริการทุกวัน 07:00 - 18:00 น.</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-cream leading-tight">
+                            เติมเต็มความสุขในทุกเช้า <br class="hidden sm:inline">ด้วยกาแฟแก้วโปรดที่ <span class="text-brand-ochre">Vela Cafe'</span>
+                        </h1>
+                        <p class="text-base sm:text-lg text-brand-cream/80 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                            สัมผัสกลิ่นหอมกรุ่นของเมล็ดกาแฟคั่วบดคุณภาพพรีเมียม ชาเขียวเข้มข้น และเครื่องดื่มหลากหลายเมนู ในบรรยากาศร้านที่อบอุ่นและเป็นกันเอง เสมือนมุมโปรดในบ้านคุณ
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                            <a href="#menu" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-brand-burgundy text-brand-cream font-medium shadow-lg hover:bg-brand-burgundyDark hover:shadow-xl transition-all text-center border border-brand-ochre/40">
+                                ดูเมนูเครื่องดื่ม <i class="fa-solid fa-arrow-right ml-2 text-brand-ochre"></i>
+                            </a>
+                            <a href="#about" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-brand-cream/10 border border-brand-cream/30 text-brand-cream font-medium hover:bg-brand-cream/20 transition-all text-center shadow-sm backdrop-blur-sm">
+                                เกี่ยวกับร้านเรา
+                            </a>
+                        </div>
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-4 pt-8 border-t border-brand-forest/60 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-brand-ochre">100%</p>
+                                <p class="text-xs sm:text-sm text-brand-cream/70">เมล็ดคัดสรรพิเศษ</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-brand-ochre">20+</p>
+                                <p class="text-xs sm:text-sm text-brand-cream/70">เมนูเครื่องดื่ม</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-brand-ochre">4.9★</p>
+                                <p class="text-xs sm:text-sm text-brand-cream/70">ความพึงพอใจลูกค้า</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Hero Image -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="absolute -inset-2 bg-gradient-to-r from-brand-burgundy to-brand-terracotta rounded-3xl blur-lg opacity-40"></div>
+                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="บรรยากาศร้านกาแฟและแก้วกาแฟลาเต้อาร์ต" class="relative rounded-2xl shadow-2xl w-full h-[380px] sm:h-[460px] object-cover border-4 border-brand-ochre/40" onerror="this.src='https://placehold.co/600x500/7A2222/ffffff?text=Vela+Cafe%27'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. About Us Section -->
+        <section id="about" class="py-20 bg-brand-sageGray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-burgundy font-semibold uppercase tracking-wider text-sm bg-brand-sageLight/40 border border-brand-sageLight/70 px-3.5 py-1 rounded-full">เรื่องราวของเรา</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-brand-espresso mt-3">อบอุ่น เป็นกันเอง และใส่ใจในทุกแก้ว</h2>
+                    <p class="text-brand-espresso/80 mt-4 text-base sm:text-lg font-light">
+                        Vela Cafe' เกิดจากความหลงใหลในกลิ่นและรสชาติของกาแฟ เราตั้งใจสร้างสรรค์พื้นที่เล็ก ๆ ที่เต็มไปด้วยความสุข ให้ทุกคนได้มาพักผ่อน พูดคุย หรือทำงาน พร้อมเพลิดเพลินกับเครื่องดื่มคุณภาพเยี่ยมในราคาสบายกระเป๋า
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-brand-creamLight p-8 rounded-2xl border border-brand-sageLight/50 shadow-md hover:shadow-xl transition-all">
+                        <div class="w-14 h-14 rounded-xl bg-brand-forest text-brand-cream flex items-center justify-center text-xl mb-6 shadow-md border border-brand-ochre/30">
+                            <i class="fa-solid fa-seedling text-brand-ochre"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-espresso mb-3">เมล็ดกาแฟคัดพิเศษ</h3>
+                        <p class="text-brand-espresso/80 text-sm leading-relaxed">
+                            เราคัดสรรเมล็ดกาแฟคุณภาพเยี่ยมทั้งจากแหล่งปลูกในไทยและต่างประเทศ ผ่านกระบวนการคั่วอย่างพิถีพิถันเพื่อให้ได้รสชาติที่กลมกล่อม หอมละมุนในทุกแก้ว
+                        </p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-brand-creamLight p-8 rounded-2xl border border-brand-sageLight/50 shadow-md hover:shadow-xl transition-all">
+                        <div class="w-14 h-14 rounded-xl bg-brand-burgundy text-brand-cream flex items-center justify-center text-xl mb-6 shadow-md border border-brand-ochre/30">
+                            <i class="fa-solid fa-mug-saucer text-brand-ochre"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-espresso mb-3">สูตรลับเฉพาะตัว</h3>
+                        <p class="text-brand-espresso/80 text-sm leading-relaxed">
+                            ไม่เพียงแต่กาแฟสดรสชาติเยี่ยม เรายังมีเมนูชา โกโก้เข้มข้น และเครื่องดื่มสร้างสรรค์สูตรพิเศษที่คิดค้นขึ้นมาเพื่อให้ถูกปากคนทุกวัย
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-brand-creamLight p-8 rounded-2xl border border-brand-sageLight/50 shadow-md hover:shadow-xl transition-all">
+                        <div class="w-14 h-14 rounded-xl bg-brand-terracotta text-brand-cream flex items-center justify-center text-xl mb-6 shadow-md border border-brand-ochre/30">
+                            <i class="fa-solid fa-heart text-brand-cream"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-espresso mb-3">บรรยากาศแสนสบาย</h3>
+                        <p class="text-brand-espresso/80 text-sm leading-relaxed">
+                            การตกแต่งร้านเน้นโทนสีอบอุ่น (Cozy Vibe) มีมุมถ่ายรูปสวย ๆ และมุมนั่งทำงานเงียบสงบ ต้อนรับทุกท่านด้วยรอยยิ้มและความเป็นกันเองเสมอ
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Featured Menu Section -->
+        <section id="menu" class="py-20 bg-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-terracotta font-semibold uppercase tracking-wider text-sm bg-brand-terracotta/10 border border-brand-terracotta/20 px-3.5 py-1 rounded-full">เมนูยอดนิยม</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-brand-espresso mt-3">เครื่องดื่มแนะนำที่คุณต้องลอง</h2>
+                    <p class="text-brand-espresso/80 mt-4 text-base sm:text-lg font-light">
+                        คัดสรร 6 เมนูเด็ดประจำร้าน ที่ไม่ว่าใครมาก็ต้องสั่งซ้ำ รสชาติกลมกล่อม ลงตัวในทุกแก้ว
+                    </p>
+                </div>
+
+                <!-- Menu Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Menu Item 1 -->
+                    <div class="bg-brand-creamLight rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-brand-terracotta/20 group flex flex-col">
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80" alt="คาปูชิโน่ร้อน" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/7A2222/ffffff?text=Cappuccino'">
+                            <span class="absolute top-4 right-4 bg-brand-burgundy text-brand-cream text-xs font-semibold px-3 py-1 rounded-full shadow border border-brand-ochre/30">กาแฟร้อน</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-bold text-brand-espresso">คาปูชิโน่ร้อน (Hot Cappuccino)</h3>
+                                    <span class="text-brand-burgundy font-bold text-lg">60 ฿</span>
+                                </div>
+                                <p class="text-brand-espresso/70 text-sm font-light mb-4">
+                                    เอสเพรสโซ่เข้มข้น ผสมนมสดเนียนนุ่ม ท็อปด้วยฟองนมนุ่มฟู โรยผงซินนามอนบาง ๆ หอมละมุน
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-brand-sageLight/50 flex items-center justify-between text-xs text-brand-espresso/70">
+                                <span><i class="fa-solid fa-fire mr-1 text-brand-terracotta"></i> ความหวานปรับได้</span>
+                                <span class="font-medium text-brand-burgundy">ขายดีอันดับ #1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 2 -->
+                    <div class="bg-brand-creamLight rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-brand-terracotta/20 group flex flex-col">
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80" alt="ไอซ์ คาราเมล แมקיอาโต้" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/9E5327/ffffff?text=Caramel+Macchiato'">
+                            <span class="absolute top-4 right-4 bg-brand-terracotta text-brand-cream text-xs font-semibold px-3 py-1 rounded-full shadow border border-brand-ochre/30">กาแฟเย็น</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-bold text-brand-espresso">คาราเมล แมקיอาโต้ (Iced Caramel Macchiato)</h3>
+                                    <span class="text-brand-burgundy font-bold text-lg">75 ฿</span>
+                                </div>
+                                <p class="text-brand-espresso/70 text-sm font-light mb-4">
+                                    นมสดเย็นราดซอสคาราเมลสูตรพิเศษ ท็อปด้วยช็อตเอสเพรสโซ่หอมเข้มข้น หวานมันกลมกล่อม
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-brand-sageLight/50 flex items-center justify-between text-xs text-brand-espresso/70">
+                                <span><i class="fa-solid fa-fire mr-1 text-brand-terracotta"></i> หวานน้อยแนะนำ</span>
+                                <span class="font-medium text-brand-terracotta">ยอดนิยม</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 3 -->
+                    <div class="bg-brand-creamLight rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-brand-terracotta/20 group flex flex-col">
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80" alt="มัทฉะลาเต้" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/3B5840/ffffff?text=Matcha+Latte'">
+                            <span class="absolute top-4 right-4 bg-brand-forest text-brand-cream text-xs font-semibold px-3 py-1 rounded-full shadow border border-brand-ochre/30">ชาเขียว</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-bold text-brand-espresso">มัทฉะลาเต้พรีเมียม (Matcha Latte)</h3>
+                                    <span class="text-brand-burgundy font-bold text-lg">70 ฿</span>
+                                </div>
+                                <p class="text-brand-espresso/70 text-sm font-light mb-4">
+                                    ผงมัทฉะแท้นำเข้าจากญี่ปุ่น กลิ่นหอมเป็นเอกลักษณ์ ผสมนมสดเนียนนุ่มละมุนลิ้น สายชาเขียวห้ามพลาด
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-brand-sageLight/50 flex items-center justify-between text-xs text-brand-espresso/70">
+                                <span><i class="fa-solid fa-leaf mr-1 text-brand-forest"></i> มัทฉะแท้ 100%</span>
+                                <span class="font-medium text-brand-forest">แนะนำ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 4 -->
+                    <div class="bg-brand-creamLight rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-brand-terracotta/20 group flex flex-col">
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1543773495-26d4b55be12d?auto=format&fit=crop&w=600&q=80" alt="ดาร์กโกโก้" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/382319/ffffff?text=Dark+Cocoa'">
+                            <span class="absolute top-4 right-4 bg-brand-espresso text-brand-cream text-xs font-semibold px-3 py-1 rounded-full shadow border border-brand-ochre/30">โกโก้</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-bold text-brand-espresso">ดาร์กโกโก้เข้มข้น (Rich Dark Cocoa)</h3>
+                                    <span class="text-brand-burgundy font-bold text-lg">65 ฿</span>
+                                </div>
+                                <p class="text-brand-espresso/70 text-sm font-light mb-4">
+                                    โกโก้นำเข้าเข้มข้นสะใจ รสชาติกลมกล่อม ไม่หวานเลี่ยน คนรักช็อกโกแลตต้องหลงรัก
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-brand-sageLight/50 flex items-center justify-between text-xs text-brand-espresso/70">
+                                <span><i class="fa-solid fa-fire mr-1 text-brand-terracotta"></i> เข้มข้นพิเศษ</span>
+                                <span class="font-medium text-brand-espresso">ยอดฮิต</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 5 -->
+                    <div class="bg-brand-creamLight rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-brand-terracotta/20 group flex flex-col">
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" alt="ฮันนี่เลมอนโซดา" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/C49A56/ffffff?text=Honey+Lemon+Soda'">
+                            <span class="absolute top-4 right-4 bg-brand-ochre text-brand-espresso font-semibold text-xs px-3 py-1 rounded-full shadow">เครื่องดื่มซ่า</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-bold text-brand-espresso">ฮันนี่เลมอนโซดา (Honey Lemon Soda)</h3>
+                                    <span class="text-brand-burgundy font-bold text-lg">55 ฿</span>
+                                </div>
+                                <p class="text-brand-espresso/70 text-sm font-light mb-4">
+                                    น้ำผึ้งแท้ผสมเลมอนสดคั้นวันต่อวัน เติมความซ่าด้วยโซดา ดื่มแล้วสดชื่น คลายร้อนได้ดีเยี่ยม
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-brand-sageLight/50 flex items-center justify-between text-xs text-brand-espresso/70">
+                                <span><i class="fa-solid fa-bolt mr-1 text-brand-ochre"></i> สดชื่นตื่นตัว</span>
+                                <span class="font-medium text-brand-terracotta">แนะนำวันร้อน</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 6 -->
+                    <div class="bg-brand-creamLight rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-brand-terracotta/20 group flex flex-col">
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=600&q=80" alt="ชาไทยนมสด" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/9E5327/ffffff?text=Thai+Milk+Tea'">
+                            <span class="absolute top-4 right-4 bg-brand-terracotta text-brand-cream text-xs font-semibold px-3 py-1 rounded-full shadow border border-brand-ochre/30">ชาไทย</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-bold text-brand-espresso">ชาไทยนมสดโบราณ (Thai Milk Tea)</h3>
+                                    <span class="text-brand-burgundy font-bold text-lg">60 ฿</span>
+                                </div>
+                                <p class="text-brand-espresso/70 text-sm font-light mb-4">
+                                    ชาไทยกลิ่นหอมเป็นเอกลักษณ์ ผสมนมสดและนมข้นสูตรลับ กลมกล่อม หวานมันกำลังดี
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-brand-sageLight/50 flex items-center justify-between text-xs text-brand-espresso/70">
+                                <span><i class="fa-solid fa-star mr-1 text-brand-ochre"></i> สูตรดั้งเดิม</span>
+                                <span class="font-medium text-brand-burgundy">ขายดี</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Why Choose Us Section -->
+        <section id="why-us" class="py-20 bg-brand-sageGray">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Image -->
+                    <div class="relative">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-forest to-brand-ochre rounded-3xl blur opacity-30"></div>
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="บาริสต้ากำลังชงกาแฟ" class="relative rounded-2xl shadow-xl w-full h-[400px] sm:h-[480px] object-cover border-4 border-brand-cream" onerror="this.src='https://placehold.co/600x500/3B5840/ffffff?text=Vela+Cafe%27+Vibe'">
+                    </div>
+
+                    <!-- Right Content Points -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-brand-forest font-semibold uppercase tracking-wider text-sm bg-brand-sageLight/40 border border-brand-sageLight/70 px-3.5 py-1 rounded-full">จุดเด่นของเรา</span>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-brand-espresso mt-3">ทำไมลูกค้าถึงเลือก Vela Cafe'?</h2>
+                            <p class="text-brand-espresso/80 mt-3 text-base font-light">
+                                เราใส่ใจในทุกรายละเอียด ตั้งแต่การคัดเลือกวัตถุดิบจนถึงบรรยากาศภายในร้าน เพื่อให้ทุกช่วงเวลาที่คุณมาเยือนคุ้มค่าที่สุด
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <!-- Point 1 -->
+                            <div class="flex items-start space-x-4 p-4 rounded-xl bg-brand-creamLight border border-brand-sageLight/60 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-brand-burgundy text-brand-cream flex items-center justify-center flex-shrink-0 shadow border border-brand-ochre/30">
+                                    <i class="fa-solid fa-check text-brand-ochre"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-brand-espresso text-lg">1. วัตถุดิบคุณภาพพรีเมียม</h3>
+                                    <p class="text-brand-espresso/80 text-sm mt-1">คัดสรรเมล็ดกาแฟแท้ 100% และวัตถุดิบธรรมชาติ ปราศจากสารแต่งกลิ่นสังเคราะห์ เพื่อสุขภาพที่ดีของลูกค้า</p>
+                                </div>
+                            </div>
+
+                            <!-- Point 2 -->
+                            <div class="flex items-start space-x-4 p-4 rounded-xl bg-brand-creamLight border border-brand-sageLight/60 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-brand-forest text-brand-cream flex items-center justify-center flex-shrink-0 shadow border border-brand-ochre/30">
+                                    <i class="fa-solid fa-check text-brand-ochre"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-brand-espresso text-lg">2. เครื่องดื่มหลากหลายเมนู</h3>
+                                    <p class="text-brand-espresso/80 text-sm mt-1">มีทั้งกาแฟสด ชาเขียว โกโก้ อิตาเลียนโซดา และเบเกอรี่โฮมเมด ตอบโจทย์ทุกไลฟ์สไตล์และความชอบ</p>
+                                </div>
+                            </div>
+
+                            <!-- Point 3 -->
+                            <div class="flex items-start space-x-4 p-4 rounded-xl bg-brand-creamLight border border-brand-sageLight/60 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-brand-terracotta text-brand-cream flex items-center justify-center flex-shrink-0 shadow border border-brand-ochre/30">
+                                    <i class="fa-solid fa-check text-brand-cream"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-brand-espresso text-lg">3. ราคาเข้าถึงง่าย สบายกระเป๋า</h3>
+                                    <p class="text-brand-espresso/80 text-sm mt-1">เครื่องดื่มคุณภาพสูงในราคานักศึกษาและบุคคลทั่วไป เริ่มต้นเพียงหลักสิบ คุ้มค่าเกินราคา</p>
+                                </div>
+                            </div>
+
+                            <!-- Point 4 -->
+                            <div class="flex items-start space-x-4 p-4 rounded-xl bg-brand-creamLight border border-brand-sageLight/60 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-brand-espresso text-brand-cream flex items-center justify-center flex-shrink-0 shadow border border-brand-ochre/30">
+                                    <i class="fa-solid fa-check text-brand-ochre"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-brand-espresso text-lg">4. บรรยากาศอบอุ่นเป็นกันเอง</h3>
+                                    <p class="text-brand-espresso/80 text-sm mt-1">มีมุมนั่งพักผ่อน อ่านหนังสือ หรือทำงาน พร้อม Wi-Fi ฟรี และบริการต้อนรับด้วยความอบอุ่นเสมือนคนในครอบครัว</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Gallery Section -->
+        <section id="gallery" class="py-20 bg-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-forest font-semibold uppercase tracking-wider text-sm bg-brand-forest/10 border border-brand-forest/20 px-3.5 py-1 rounded-full">แกลเลอรีภาพ</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-brand-espresso mt-3">บรรยากาศและมุมโปรดภายในร้าน</h2>
+                    <p class="text-brand-espresso/80 mt-4 text-base sm:text-lg font-light">
+                        เก็บภาพความประทับใจ บรรยากาศชิล ๆ และเครื่องดื่มแก้วโปรดที่พร้อมเสิร์ฟความอร่อยให้คุณทุกวัน
+                    </p>
+                </div>
+
+                <!-- Responsive Image Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600&q=80" alt="บรรยากาศเคาน์เตอร์กาแฟ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/7A2222/ffffff?text=Gallery+1'">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" alt="แก้วกาแฟลาเต้อาร์ต" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/382319/ffffff?text=Gallery+2'">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=600&q=80" alt="มุมนั่งเล่นในร้านกาแฟ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/3B5840/ffffff?text=Gallery+3'">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1507133754641-44e21a2245b7?auto=format&fit=crop&w=600&q=80" alt="เมล็ดกาแฟคั่วบด" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/9E5327/ffffff?text=Gallery+4'">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="ลูกค้านั่งทำงานในร้าน" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/C49A56/ffffff?text=Gallery+5'">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="เครื่องดื่มเย็นชื่นใจ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/7A2222/ffffff?text=Gallery+6'">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=600&q=80" alt="บรรยากาศร้านยามบ่าย" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/2A3F30/ffffff?text=Gallery+7'">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-md group h-48 sm:h-64 border border-brand-terracotta/20">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80" alt="กาแฟสดแก้วโปรด" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/5E825C/ffffff?text=Gallery+8'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Contact & Footer Section -->
+        <footer id="contact" class="bg-brand-pineDark text-brand-cream pt-16 pb-12 border-t border-brand-forest">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                    <!-- Col 1: Brand Info -->
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-burgundy flex items-center justify-center p-2 shadow-md border border-brand-ochre/40">
+                                <svg class="w-full h-full text-brand-cream fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 1w.8 1.8C8.5 3.3 8 4 7 4.5s-1.5 1-1 2c.5 1 1.5.8 2 1.5S7.2 9.5 6 10M12 1w.8 1.8c.7 0.5.2 1.2-.8 1.7s-1.5 1-1 2c.5 1 1.5.8 2 1.5s-.8 1.5-2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M2 10h15v5c0 3.3-2.7 6-6 6H8c-3.3 0-6-2.7-6-6v-5zm15 2h2c1.7 0 3 1.3 3 3s-1.3 3-3 3h-2v-6z"/>
+                                </svg>
+                            </div>
+                            <span class="font-bold text-xl tracking-tight text-brand-cream">
+                                Vela <span class="text-brand-ochre font-light">Cafe'</span>
+                            </span>
+                        </div>
+                        <p class="text-brand-cream/80 text-sm font-light leading-relaxed">
+                            ร้านกาแฟอบอุ่นใจกลางเมือง ที่พร้อมเสิร์ฟความสุขและรอยยิ้มผ่านเครื่องดื่มแก้วโปรดของคุณทุกวัน
+                        </p>
+                        <div class="flex space-x-3 pt-2">
+                            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-brand-forest flex items-center justify-center text-brand-cream hover:bg-brand-burgundy transition-colors border border-brand-ochre/30">
+                                <i class="fa-brands fa-facebook-f text-sm"></i>
+                            </a>
+                            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-brand-forest flex items-center justify-center text-brand-cream hover:bg-brand-burgundy transition-colors border border-brand-ochre/30">
+                                <i class="fa-brands fa-instagram text-sm"></i>
+                            </a>
+                            <a href="#" aria-label="Line" class="w-9 h-9 rounded-full bg-brand-forest flex items-center justify-center text-brand-cream hover:bg-brand-burgundy transition-colors border border-brand-ochre/30">
+                                <i class="fa-brands fa-line text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Opening Hours -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-bold text-brand-cream border-b border-brand-forest pb-2">เวลาเปิดให้บริการ</h3>
+                        <ul class="space-y-2 text-sm text-brand-cream/80 font-light">
+                            <li class="flex justify-between">
+                                <span>วันจันทร์ – วันศุกร์:</span>
+                                <span class="font-medium text-brand-ochre">07:00 - 18:00 น.</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>วันเสาร์ – วันอาทิตย์:</span>
+                                <span class="font-medium text-brand-ochre">08:00 - 19:00 น.</span>
+                            </li>
+                            <li class="pt-2 text-xs text-brand-sageLight italic">
+                                *เปิดให้บริการทุกวัน ไม่มีวันหยุด
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 3: Location / Address -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-bold text-brand-cream border-b border-brand-forest pb-2">ที่ตั้งร้าน</h3>
+                        <p class="text-sm text-brand-cream/80 font-light leading-relaxed">
+                            <i class="fa-solid fa-location-dot text-brand-ochre mr-2"></i>
+                            123/45 ถนนมิตรภาพ ตำบลในเมือง อำเภอเมือง จังหวัดนครราชสีมา 30000 (ใกล้กับมหาวิทยาลัย)
+                        </p>
+                        <p class="text-xs text-brand-sageLight font-light">
+                            มีที่จอดรถสะดวกสบายหน้าร้าน
+                        </p>
+                    </div>
+
+                    <!-- Col 4: Contact Info -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-bold text-brand-cream border-b border-brand-forest pb-2">ช่องทางติดต่อ</h3>
+                        <ul class="space-y-3 text-sm text-brand-cream/80 font-light">
+                            <li class="flex items-center space-x-3">
+                                <i class="fa-solid fa-phone text-brand-ochre"></i>
+                                <span>044-123-456 / 089-987-6543</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fa-solid fa-envelope text-brand-ochre"></i>
+                                <span>contact@velacafe.com</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fa-solid fa-comments text-brand-ochre"></i>
+                                <span>Line ID: @velacafe</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Copyright Bar -->
+                <div class="pt-8 border-t border-brand-forest text-center text-xs sm:text-sm text-brand-sageLight font-light">
+                    <p>&copy; 2026 Vela Cafe'. All rights reserved. Designed with Custom Earthy Palette.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Vanilla JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            // Toggle mobile menu visibility
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+
+            // Close mobile menu when clicking any navigation link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
